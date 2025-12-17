@@ -1,10 +1,8 @@
 package com.example.demo.service.impl;
 
 import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.entity.Studentity;
 import com.example.demo.repository.StudentRepo;
 import com.example.demo.service.Studservice;
