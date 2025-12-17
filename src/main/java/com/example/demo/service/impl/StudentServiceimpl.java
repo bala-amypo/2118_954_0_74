@@ -1,28 +1,38 @@
-package com.example.demo.serviceimpl;
-import java.util.*;
-import org.springframework.stereotype.service;
-import com.example.demo.entity.Student;
-@service
-public class StudentServiceimpl implements StudentService{
-    private final Map<Long,Student>
-    store=new HashMap<>();
-    private long counter=1;
+package com.example.demo.service.impl;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Studentity;
+import com.example.demo.repository.StudentRepo;
+import com.example.demo.service.Studservice;
+
+@Service
+public class StudentServiceimpl implements Studservice {
+
+    @Autowired
+    private StudentRepo repo;
+
     @Override
-    public Student insertStudent(Student st){
-        st.setld(counter++);
-        store.put(st,getId(),st);
-        return st;
+    public Studentity saveData(Studentity st) {
+        return repo.save(st);
     }
+
     @Override
-    public List<Student>getAllStudents(){
-        return new ArrayList<>(store.values());
+    public Collection<Studentity> getAll() {
+        return repo.findAll();
     }
+
     @Override
-    public Optional<Student>getOneStudent(Long id){
-        return Optimal.ofNullable(store.get(id));
+    public Studentity getById(int id) {
+        return repo.findById(id).orElse(null);
     }
+
     @Override
-    public void deleteStudent(Long id){
-        store.remove(id);
+    public Studentity update(int id, Studentity st) {
+        st.setId(id);
+        return repo.save(st);
     }
 }
