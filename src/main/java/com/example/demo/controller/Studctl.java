@@ -18,5 +18,13 @@ public class Studctl{
         return ser.getAll();
     }
     @GetMapping("/get/{id}")
-    public Stu
+    public Studentity getStudentById(@PathVariable int id){
+        return ser.getById(id);
+    }
+    @PutMapping("/update/{id}")
+    public Studentity updateStudent(
+        @PathVariable int id;
+        @RequestBody Studentity st){
+            return ser.update(id,st);
+        }
 }
