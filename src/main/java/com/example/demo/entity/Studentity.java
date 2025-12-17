@@ -11,7 +11,7 @@ public class Studentity {
 
     private String name;
 
-    // getters & setters
+    // Getters and Setters
     public int getId() {
         return id;
     }
