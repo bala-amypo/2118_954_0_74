@@ -9,4 +9,3 @@ public interface Studservice {
     Studentity getById(int id);
     Studentity update(int id, Studentity st);
 }
-
