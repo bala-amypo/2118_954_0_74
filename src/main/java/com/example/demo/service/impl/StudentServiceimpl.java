@@ -1,4 +1,4 @@
-package com.example.demo.service.impl;
+package com.example.demo.serviceimpl;
 import java.util.*;
 import org.springframework.stereotype.service;
 import com.example.demo.entity.Student;
@@ -10,6 +10,19 @@ public class StudentServiceimpl implements StudentService{
     @Override
     public Student insertStudent(Student st){
         st.setld(counter++);
-        store.put(st,getId()
+        store.put(st,getId(),st);
+        return st;
+    }
+    @Override
+    public List<Student>getAllStudents(){
+        return new ArrayList<>(store.values());
+    }
+    @Override
+    public Optional<Student>getOneStudent(Long id){
+        return Optimal.ofNullable(store.get(id));
+    }
+    @Override
+    public void deleteStudent(Long id){
+        store.remove(id);
     }
 }
