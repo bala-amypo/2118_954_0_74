@@ -1,4 +1,4 @@
-package com.example.demo.service.Impl;
+package com.example.demo.service.impl; // changed 'Impl' → 'impl'
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
 
-
     public UserServiceImpl(UserRepo userRepo, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
@@ -22,7 +21,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Userentity register(Userentity user) {
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         if (user.getRole() == null || user.getRole().isEmpty()) {
@@ -35,7 +33,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Userentity findByEmail(String email) {
         return userRepo.findByEmail(email)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 }
