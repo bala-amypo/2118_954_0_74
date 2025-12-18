@@ -13,7 +13,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .servers(List.of(
-                        new Server().url("http://localhost:9090") // matches server.port
+                        new Server().url("https://9242.pro604cr.amypo.ai/") // matches server.port
                 ));
     }
 }
