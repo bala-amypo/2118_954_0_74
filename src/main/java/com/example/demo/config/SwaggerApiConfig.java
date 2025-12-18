@@ -13,10 +13,9 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-
         Server server = new Server();
-        server.setUrl("https://9330.pro604cr.amypo.ai");
-        server.setDescription("transport_pro server");
+        server.setUrl("http://localhost:9001"); // fixed for local
+        server.setDescription("Local transport_pro server");
 
         return new OpenAPI()
                 .info(new Info()
